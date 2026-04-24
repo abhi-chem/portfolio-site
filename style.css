@@ -1,12 +1,12 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #020617, #0f172a);
+  background: #020617;
   color: white;
 }
 
 /* NAV */
-.navbar {
+.nav {
   position: fixed;
   width: 100%;
   display: flex;
@@ -20,9 +20,10 @@ body {
 .hero {
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  background: radial-gradient(circle, #1e293b, #020617);
 }
 
 .hero h1 {
@@ -36,40 +37,33 @@ body {
   margin: auto;
 }
 
-/* PROJECT LAYOUT */
+/* PROJECT */
 .project {
   display: flex;
   gap: 40px;
   margin-top: 60px;
-  align-items: center;
 }
 
 .project.reverse {
   flex-direction: row-reverse;
 }
 
-/* IMAGE */
-.project-img {
-  flex: 1;
-  overflow: hidden;
-  border-radius: 15px;
-}
-
-.project-img img {
+.img img {
   width: 100%;
+  border-radius: 15px;
   transition: 0.5s;
 }
 
-.project-img:hover img {
+.img img:hover {
   transform: scale(1.1);
 }
 
-/* TEXT */
-.project-text {
-  flex: 1;
+/* PUB */
+.pub li {
+  margin-bottom: 10px;
 }
 
-/* SCROLL ANIMATION */
+/* ANIMATION */
 .reveal {
   opacity: 0;
   transform: translateY(60px);
@@ -81,7 +75,6 @@ body {
   transform: translateY(0);
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
