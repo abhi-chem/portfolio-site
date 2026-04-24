@@ -16,6 +16,14 @@ body {
   backdrop-filter: blur(12px);
 }
 
+.nav a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  padding-top: 70px;
+}
 /* HERO */
 .hero {
   height: 100vh;
