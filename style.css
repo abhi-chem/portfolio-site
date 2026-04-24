@@ -1,66 +1,121 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
+  font-family: 'Segoe UI', sans-serif;
+  background: #020617;
   color: white;
+  scroll-behavior: smooth;
 }
 
-nav {
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background: #020617;
+  padding: 15px 40px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
 }
 
-nav ul {
-  list-style: none;
+.navbar ul {
   display: flex;
   gap: 20px;
+  list-style: none;
 }
 
-nav a {
+.navbar a {
   color: white;
   text-decoration: none;
 }
 
+/* HERO */
 .hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(270deg, #0f172a, #1e293b, #0f172a);
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
 }
 
-section {
-  padding: 60px 20px;
-  max-width: 900px;
+@keyframes gradientMove {
+  0% {background-position: 0%;}
+  50% {background-position: 100%;}
+  100% {background-position: 0%;}
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.glow {
+  font-size: 3rem;
+  text-shadow: 0 0 10px #38bdf8;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #38bdf8;
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+/* SECTIONS */
+.section {
+  padding: 100px 20px;
+  max-width: 1000px;
   margin: auto;
 }
 
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
 .card {
   background: #1e293b;
   padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-  transition: transform 0.3s;
+  border-radius: 12px;
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
 }
 
+.wide {
+  max-width: 600px;
+  margin: auto;
+}
+
+/* SCROLL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
-  background: #020617;
-}
-
-/* Animation */
-.fade {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.6s;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+  background: black;
 }
