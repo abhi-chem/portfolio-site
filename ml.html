@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Machine Learning | Abhishek Anand</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Machine learning applications in battery technology and electrochemical systems by Abhishek Anand.">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
-
 <body>
   <div class="page-transition"></div>
 
-  <!-- NAV -->
   <nav class="nav">
-    <h2>Abhishek Anand</h2>
+    <a href="index.html" class="nav-brand">Abhishek <span>Anand</span></a>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -26,23 +25,103 @@
     </ul>
   </nav>
 
-  <!-- ML SECTION -->
-  <section class="section reveal">
-    <h2>Machine Learning Applications</h2>
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <div class="page-tag">Data Science & AI</div>
+      <h1>Machine Learning</h1>
+      <p>Applying data-driven methods to accelerate materials discovery and optimize energy storage systems.</p>
+    </div>
+  </div>
 
-    <div class="project">
-      <img src="images/ml.jpg" alt="Battery SoC Prediction">
-      <div class="project-info">
-        <h3>Battery SoC Prediction</h3>
-        <p>Developed an advanced LSTM-based (Long Short-Term Memory) neural network to predict the State of Charge (SoC)
-          in lithium-ion batteries. This predictive model integrates electrochemical signatures with dynamic time-series
-          data to deliver high-accuracy SoC estimations, critical for Battery Management Systems (BMS) in EVs.</p>
-        <a href="#" class="btn">View on GitHub</a>
+  <div class="section">
+
+    <!-- ML PROJECT 1 -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 80px;" class="reveal">
+      <img src="images/ml.jpg" alt="Battery SoC Prediction with LSTM" style="border-radius: 16px; width: 100%; height: 340px; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+      <div>
+        <span class="card-tag">Deep Learning</span>
+        <h2 style="font-family: Outfit, sans-serif; font-size: 1.8rem; font-weight: 800; margin: 12px 0 16px; letter-spacing: -0.5px; color: var(--text-primary);">Battery SoC Prediction with LSTM Networks</h2>
+        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px;">
+          Developed a Long Short-Term Memory (LSTM) recurrent neural network to predict the State of Charge (SoC) of lithium-ion battery cells in real time. The model was trained on dynamic discharge profiles combining current, voltage, and temperature signals.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 24px;">
+          Achieved <strong style="color: var(--text-primary);">&lt;2% RMSE</strong> on held-out test data across multiple driving cycles, enabling more accurate BMS estimation for EV platforms at OLA Electric.
+        </p>
+        <div style="display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap;">
+          <span class="tag">Python</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">LSTM</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Scikit-learn</span>
+        </div>
+        <a href="https://github.com/abhi-chem" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
     </div>
 
-  </section>
+    <hr class="divider" style="margin-bottom: 80px;">
 
+    <!-- ML PROJECT 2 -->
+    <div class="reveal">
+      <div class="section-header">
+        <h2>ML for Materials Discovery</h2>
+        <p>Applying AI to accelerate the identification of high-performance energy materials</p>
+      </div>
+      <div class="cards-grid reveal-stagger">
+        <div class="card">
+          <div class="card-body">
+            <span class="card-tag">Regression</span>
+            <h3>Bandgap Prediction</h3>
+            <p>Gradient-boosted tree models trained on DFT datasets to predict bandgaps of chalcogenide perovskites from structural descriptors, reducing computational screening time by 10×.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <span class="card-tag">Anomaly Detection</span>
+            <h3>Battery Degradation Modeling</h3>
+            <p>Autoencoder-based models for detecting anomalous capacity fade in lithium-ion cells using electrochemical impedance signatures, enabling early-warning diagnostics in BMS.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <span class="card-tag">Feature Engineering</span>
+            <h3>EIS Feature Extraction</h3>
+            <p>Automated pipeline to extract equivalent circuit parameters from raw impedance data, feeding downstream ML models for SoH estimation without manual fitting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="reveal" style="margin-top: 60px; padding: 40px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+      <h3 style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 1.3rem; margin-bottom: 20px;">Technical Stack</h3>
+      <div class="tags">
+        <span class="tag accent">Python</span>
+        <span class="tag accent">PyTorch</span>
+        <span class="tag accent">TensorFlow</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">Jupyter</span>
+        <span class="tag">Git</span>
+        <span class="tag">OriginPro</span>
+        <span class="tag">MATLAB</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">Abhishek Anand</span>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <span class="footer-copy">&copy; 2025 &mdash; IIT Madras / OLA Electric</span>
+    </div>
+  </footer>
 </body>
-
 </html>
