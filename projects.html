@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Machine Learning | Abhishek Anand</title>
-  <meta name="description" content="Machine learning applications in battery technology and electrochemical systems by Abhishek Anand.">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description"
+    content="Machine learning applications in battery technology and electrochemical systems by Abhishek Anand.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
+
 <body>
   <canvas id="mol-bg"></canvas>
   <div class="page-transition"></div>
@@ -21,7 +26,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="publications.html">Publications</a></li>
-      <li><a href="ml.html">ML</a></li>
+      <li><a href="projects.html">Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -37,16 +42,23 @@
   <div class="section">
 
     <!-- ML PROJECT 1 -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 80px;" class="reveal">
-      <img src="images/ml.jpg" alt="Battery SoC Prediction with LSTM" style="border-radius: 16px; width: 100%; height: 340px; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 80px;"
+      class="reveal">
+      <img src="images/ml.jpg" alt="Battery SoC Prediction with LSTM"
+        style="border-radius: 16px; width: 100%; height: 340px; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
       <div>
         <span class="card-tag">Deep Learning</span>
-        <h2 style="font-family: Outfit, sans-serif; font-size: 1.8rem; font-weight: 800; margin: 12px 0 16px; letter-spacing: -0.5px; color: var(--text-primary);">Battery SoC Prediction with LSTM Networks</h2>
+        <h2
+          style="font-family: Outfit, sans-serif; font-size: 1.8rem; font-weight: 800; margin: 12px 0 16px; letter-spacing: -0.5px; color: var(--text-primary);">
+          Battery SoC Prediction with LSTM Networks</h2>
         <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px;">
-          Developed a Long Short-Term Memory (LSTM) recurrent neural network to predict the State of Charge (SoC) of lithium-ion battery cells in real time. The model was trained on dynamic discharge profiles combining current, voltage, and temperature signals.
+          Developed a Long Short-Term Memory (LSTM) recurrent neural network to predict the State of Charge (SoC) of
+          lithium-ion battery cells in real time. The model was trained on dynamic discharge profiles combining current,
+          voltage, and temperature signals.
         </p>
         <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 24px;">
-          Achieved <strong style="color: var(--text-primary);">&lt;2% RMSE</strong> on held-out test data across multiple driving cycles, enabling more accurate BMS estimation for EV platforms at OLA Electric.
+          Achieved <strong style="color: var(--text-primary);">&lt;2% RMSE</strong> on held-out test data across
+          multiple driving cycles, enabling more accurate BMS estimation for EV platforms at OLA Electric.
         </p>
         <div style="display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap;">
           <span class="tag">Python</span>
@@ -55,7 +67,8 @@
           <span class="tag">Pandas</span>
           <span class="tag">Scikit-learn</span>
         </div>
-        <a href="https://github.com/abhi-chem" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View on GitHub</a>
+        <a href="https://github.com/abhi-chem" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i>
+          View on GitHub</a>
       </div>
     </div>
 
@@ -72,29 +85,34 @@
           <div class="card-body">
             <span class="card-tag">Regression</span>
             <h3>Bandgap Prediction</h3>
-            <p>Gradient-boosted tree models trained on DFT datasets to predict bandgaps of chalcogenide perovskites from structural descriptors, reducing computational screening time by 10×.</p>
+            <p>Gradient-boosted tree models trained on DFT datasets to predict bandgaps of chalcogenide perovskites from
+              structural descriptors, reducing computational screening time by 10×.</p>
           </div>
         </div>
         <div class="card">
           <div class="card-body">
             <span class="card-tag">Anomaly Detection</span>
             <h3>Battery Degradation Modeling</h3>
-            <p>Autoencoder-based models for detecting anomalous capacity fade in lithium-ion cells using electrochemical impedance signatures, enabling early-warning diagnostics in BMS.</p>
+            <p>Autoencoder-based models for detecting anomalous capacity fade in lithium-ion cells using electrochemical
+              impedance signatures, enabling early-warning diagnostics in BMS.</p>
           </div>
         </div>
         <div class="card">
           <div class="card-body">
             <span class="card-tag">Feature Engineering</span>
             <h3>EIS Feature Extraction</h3>
-            <p>Automated pipeline to extract equivalent circuit parameters from raw impedance data, feeding downstream ML models for SoH estimation without manual fitting.</p>
+            <p>Automated pipeline to extract equivalent circuit parameters from raw impedance data, feeding downstream
+              ML models for SoH estimation without manual fitting.</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Tech Stack -->
-    <div class="reveal" style="margin-top: 60px; padding: 40px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius-lg);">
-      <h3 style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 1.3rem; margin-bottom: 20px;">Technical Stack</h3>
+    <div class="reveal"
+      style="margin-top: 60px; padding: 40px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+      <h3 style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 1.3rem; margin-bottom: 20px;">Technical
+        Stack</h3>
       <div class="tags">
         <span class="tag accent">Python</span>
         <span class="tag accent">PyTorch</span>
@@ -125,4 +143,5 @@
     </div>
   </footer>
 </body>
+
 </html>
