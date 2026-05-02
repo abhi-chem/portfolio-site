@@ -691,14 +691,19 @@ footer {
 
 .bio-section h3 {
   font-family: 'Outfit', sans-serif;
-  text-align: justify;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 14px;
+
   margin-top: 36px;
+  margin-bottom: 12px;
+
   padding-bottom: 8px;
+
   border-bottom: 2px solid var(--accent-light);
+
+  letter-spacing: -0.2px;
+  /* makes it look sharper */
 }
 
 .bio-section h3:first-child {
@@ -708,8 +713,17 @@ footer {
 .bio-section p {
   font-size: 0.97rem;
   color: var(--text-secondary);
-  line-height: 1.75;
-  margin-bottom: 14px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+
+  text-align: justify;
+  /* ✅ correct place */
+}
+
+.bio-section h3 {
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+  border-bottom: none;
 }
 
 /* Timeline */
