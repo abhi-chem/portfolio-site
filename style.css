@@ -562,6 +562,21 @@ footer {
   white-space: nowrap;
 }
 
+/* Thesis styling */
+.timeline-body .thesis {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* Advisor styling */
+.timeline-body .advisor {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
 .expertise-section {
   margin-top: 20px;
 }
