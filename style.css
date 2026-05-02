@@ -548,6 +548,56 @@ footer {
   color: var(--text-muted);
 }
 
+.expertise-section {
+  margin-top: 20px;
+}
+
+/* Section headings */
+.expertise-section h4 {
+  margin-top: 28px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #9aa4b2;
+  /* soft gray instead of black */
+  letter-spacing: 0.5px;
+}
+
+/* Tags container */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* Default tag */
+.tag {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d1d5db;
+  transition: all 0.2s ease;
+}
+
+/* Accent tag */
+.tag.accent {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  font-weight: 500;
+}
+
+/* Hover effect (makes it feel modern) */
+.tag:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tag.accent:hover {
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
 .bio-section h3 {
   font-family: 'Outfit', sans-serif;
   font-size: 1.3rem;
