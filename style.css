@@ -548,6 +548,20 @@ footer {
   color: var(--text-muted);
 }
 
+.timeline-body h4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeline-duration {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
 .expertise-section {
   margin-top: 20px;
 }
