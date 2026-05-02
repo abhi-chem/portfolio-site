@@ -553,49 +553,139 @@ footer {
 }
 
 /* Section headings */
+/* ========================================
+   TECHNICAL EXPERTISE SECTION
+======================================== */
+
+.expertise-section {
+  margin-top: 24px;
+}
+
+/* Category Headings with Icons */
 .expertise-section h4 {
-  margin-top: 28px;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 32px;
+  margin-bottom: 12px;
+
+  font-size: 1.05rem;
   font-weight: 600;
-  color: #9aa4b2;
-  /* soft gray instead of black */
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
+
+  color: var(--text-muted);
+
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
+}
+
+/* Icon styling */
+.expertise-section h4 i {
+  color: var(--accent);
+  font-size: 0.95rem;
+  min-width: 18px;
 }
 
 /* Tags container */
-.tags {
+.expertise-section .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
-/* Default tag */
-.tag {
-  padding: 6px 12px;
-  font-size: 0.85rem;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #d1d5db;
-  transition: all 0.2s ease;
-}
-
-/* Accent tag */
-.tag.accent {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
+/* Default tag (light theme optimized) */
+.expertise-section .tag {
+  padding: 6px 14px;
+  font-size: 0.82rem;
   font-weight: 500;
+
+  border-radius: 999px;
+
+  background: var(--bg-soft);
+  color: var(--text-secondary);
+
+  border: 1px solid var(--border);
+
+  transition: all 0.25s ease;
 }
 
-/* Hover effect (makes it feel modern) */
-.tag:hover {
+/* Hover effect */
+.expertise-section .tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.15);
 }
 
-.tag.accent:hover {
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+/* Accent tags (your core strengths) */
+.expertise-section .tag.accent {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+/* Accent hover */
+.expertise-section .tag.accent:hover {
+  background: var(--accent-dark);
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25);
+}
+
+/* ========================================
+   OPTIONAL: CATEGORY COLOR CODING
+   (subtle visual grouping)
+======================================== */
+
+/* Materials */
+.expertise-section h4:nth-of-type(1) i {
+  color: #7c3aed;
+}
+
+/* Deposition */
+.expertise-section h4:nth-of-type(2) i {
+  color: #6366f1;
+}
+
+/* Characterization */
+.expertise-section h4:nth-of-type(3) i {
+  color: #0ea5e9;
+}
+
+/* Spectroscopy */
+.expertise-section h4:nth-of-type(4) i {
+  color: #0284c7;
+}
+
+/* Electrochemistry */
+.expertise-section h4:nth-of-type(5) i {
+  color: #059669;
+}
+
+/* Battery */
+.expertise-section h4:nth-of-type(6) i {
+  color: #16a34a;
+}
+
+/* Thermal */
+.expertise-section h4:nth-of-type(7) i {
+  color: #d97706;
+}
+
+/* Analytical */
+.expertise-section h4:nth-of-type(8) i {
+  color: #9333ea;
+}
+
+/* Programming */
+.expertise-section h4:nth-of-type(9) i {
+  color: #2563eb;
+}
+
+/* Software */
+.expertise-section h4:nth-of-type(10) i {
+  color: #475569;
 }
 
 .bio-section h3 {
@@ -677,36 +767,6 @@ footer {
 .timeline-body p {
   font-size: 0.86rem;
   color: var(--text-muted);
-}
-
-/* Skills Tags */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tag {
-  padding: 7px 16px;
-  border-radius: 100px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  background: var(--bg-soft);
-  transition: all var(--transition);
-}
-
-.tag:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-light);
-}
-
-.tag.accent {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
 }
 
 /* ========================================
