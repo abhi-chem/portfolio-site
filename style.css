@@ -700,10 +700,11 @@ footer {
 
   padding-bottom: 8px;
 
-  border-bottom: 2px solid var(--accent-light);
-
   letter-spacing: -0.2px;
   /* makes it look sharper */
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+  border-bottom: none;
 }
 
 .bio-section h3:first-child {
@@ -720,11 +721,6 @@ footer {
   /* ✅ correct place */
 }
 
-.bio-section h3 {
-  border-left: 3px solid var(--accent);
-  padding-left: 10px;
-  border-bottom: none;
-}
 
 /* Timeline */
 .timeline {
