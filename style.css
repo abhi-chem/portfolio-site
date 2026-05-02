@@ -522,19 +522,6 @@ footer {
   margin-bottom: 16px;
 }
 
-.bio-text {
-  text-align: justify;
-  font-size: 0.98rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 16px;
-}
-
-/* Optional: better spacing for readability */
-.bio-section {
-  max-width: 720px;
-}
-
 .profile-links {
   display: flex;
   flex-direction: column;
@@ -704,6 +691,7 @@ footer {
 
 .bio-section h3 {
   font-family: 'Outfit', sans-serif;
+  text-align: justify;
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--text-primary);
