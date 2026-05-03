@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Research | Abhishek Anand</title>
   <meta name="description"
-    content="Research in PEC water splitting, chalcogenide perovskites, and battery electrochemistry at IIT Madras.">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+    content="Research spanning PEC water splitting, perovskite LED materials, battery R&D, and machine learning for materials discovery — Abhishek Anand, IIT Madras.">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
@@ -24,180 +23,445 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
       <li><a href="publications.html">Publications</a></li>
-      <!-- <li><a href="projects.html">Projects</a></li> -->
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
+  <!-- PAGE BANNER -->
   <div class="page-banner">
     <div class="page-banner-inner">
-      <div class="page-tag">Research Focus</div>
-      <p>Developing next-generation energy materials through a combination of synthesis, spectroscopy, and computational
-        approaches.</p>
+      <div class="page-tag">Research Overview</div>
+      <h1 style="font-family:'Outfit',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--text-primary);letter-spacing:-1px;margin-bottom:12px;">
+        From Atoms to Applications
+      </h1>
+      <p>Bridging fundamental materials science and applied engineering — spanning solar fuels, next-generation LEDs, battery R&D, and AI-driven discovery.</p>
     </div>
   </div>
 
   <div class="section">
 
-    <!-- PROJECT 1 -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 80px;"
-      class="reveal">
-      <img src="images/pec.jpg" alt="PEC Water Splitting"
-        style="border-radius: 16px; width: 100%; height: 100px; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
-      <div>
-        <span class="card-tag">Electrochemistry</span>
-        <h2
-          style="font-family: Outfit, sans-serif; font-size: 1.8rem; font-weight: 800; margin: 12px 0 16px; letter-spacing: -0.5px; color: var(--text-primary);">
-          Photoelectrochemical Water Splitting</h2>
-        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px;">
-          My research investigates the enhancement of solar-to-hydrogen conversion efficiency using external magnetic
-          fields and spin-selective charge transport mechanisms in complex oxide photoelectrodes.
+    <!-- RESEARCH AREA OVERVIEW CARDS -->
+    <div class="research-intro reveal-stagger">
+
+      <div class="ri-card">
+        <div class="ri-icon" style="background:#e0f2fe;color:#0ea5e9;">
+          <i class="fas fa-sun"></i>
+        </div>
+        <h3>PEC Water Splitting</h3>
+        <p>Magnetic-field enhanced solar-to-hydrogen conversion using spin-selective perovskite photoelectrodes.</p>
+      </div>
+
+      <div class="ri-card">
+        <div class="ri-icon" style="background:#ede9fe;color:#7c3aed;">
+          <i class="fas fa-atom"></i>
+        </div>
+        <h3>Perovskite LED Materials</h3>
+        <p>Halide &amp; chalcogenide perovskites for stable, efficient light-emitting and photovoltaic devices.</p>
+      </div>
+
+      <div class="ri-card">
+        <div class="ri-icon" style="background:#dcfce7;color:#059669;">
+          <i class="fas fa-battery-full"></i>
+        </div>
+        <h3>Battery R&amp;D</h3>
+        <p>Lithium-ion cell diagnostics, electrode engineering, and BMS algorithm development at scale.</p>
+      </div>
+
+      <div class="ri-card">
+        <div class="ri-icon" style="background:#fef3c7;color:#d97706;">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>ML for Materials</h3>
+        <p>LSTM, autoencoders, and gradient-boosted models for property prediction and degradation diagnostics.</p>
+      </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 1 — PEC WATER SPLITTING
+    ═══════════════════════════════════════════ -->
+    <div class="research-block reveal">
+
+      <!-- TEXT -->
+      <div class="rb-text">
+        <span class="card-tag">Electrochemistry · Solar Energy</span>
+        <h2>Photoelectrochemical Water Splitting</h2>
+        <p class="rb-desc">
+          My doctoral research investigates how external magnetic fields and spin-polarised charge carriers can dramatically
+          boost solar-to-hydrogen conversion efficiency in perovskite-based photoelectrodes. Using BiVO₄ photoanodes
+          decorated with magnetic CoFeOₓ overlayers, we established a direct link between surface magnetic moment
+          orientation and minority-carrier extraction kinetics.
         </p>
-        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 24px;">
-          Key findings include the role of magnetic moments in biasing minority carrier extraction at BiVO₄/CoFeOₓ
-          interfaces, leading to a 2× improvement in photocurrent density. This work was published in <em>Journal of
-            Physical Chemistry C</em> (2026).
+        <p class="rb-desc" style="margin-top:-10px;">
+          The work opens a new design parameter — spin engineering — for next-generation PEC devices, complementing
+          conventional band-engineering and co-catalyst strategies.
         </p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="publications.html" class="btn btn-primary"><i class="fas fa-book-open"></i> Related Publications</a>
+
+        <div class="rb-findings">
+          <h4>Key Results</h4>
+          <ul>
+            <li>2× improvement in photocurrent density under applied magnetic field</li>
+            <li>Spin-selective charge extraction confirmed via TRPL and EIS</li>
+            <li>BiVO₄/CoFeOₓ interface characterised by in-situ Raman &amp; XPS</li>
+            <li>Published in <em>Journal of Physical Chemistry C</em> (2026)</li>
+          </ul>
+        </div>
+
+        <div class="rb-tags">
+          <span class="tag">BiVO₄</span>
+          <span class="tag">CoFeOₓ</span>
+          <span class="tag">Spin Transport</span>
+          <span class="tag">IPCE</span>
+          <span class="tag">Mott-Schottky</span>
+          <span class="tag">TRPL</span>
+          <span class="tag">EIS</span>
+          <span class="tag">H₂ Evolution</span>
+        </div>
+
+        <div class="rb-cta">
+          <a href="publications.html" class="btn btn-primary"><i class="fas fa-book-open"></i> Publications</a>
           <a href="contact.html" class="btn btn-outline"><i class="fas fa-comments"></i> Collaborate</a>
         </div>
       </div>
-    </div>
 
-    <hr class="divider" style="margin-bottom: 80px;">
+      <!-- GALLERY -->
+      <div class="rb-gallery">
+        <!--
+          MAIN IMAGE  →  pec_main.jpg
+          Recommended: 16:9 landscape, e.g. 1280×720 px
+          Shows PEC cell setup / J-V curves / schematic
+        -->
+        <img src="images/pec_main.jpg" alt="PEC water splitting setup" class="rb-img-main">
+        <p class="rb-img-caption">PEC cell setup with BiVO₄ photoanode under AM 1.5G illumination</p>
 
-    <!-- PROJECT 2 -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 80px;"
-      class="reveal">
-      <div>
-        <span class="card-tag">Materials Science</span>
-        <h2
-          style="font-family: Outfit, sans-serif; font-size: 1.8rem; font-weight: 800; margin: 12px 0 16px; letter-spacing: -0.5px; color: var(--text-primary);">
-          Chalcogenide & Halide Perovskites</h2>
-        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px;">
-          I explore the structural and optoelectronic properties of lead-free chalcogenide perovskites (BaZrS₃) as
-          stable alternatives to halide perovskites for photovoltaic and photocatalytic applications.
-        </p>
-        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 24px;">
-          Key contributions include elucidating octahedral distortion-induced photoluminescence quenching,
-          bipolaron-mediated hopping conduction, and engineering chalcogenide photoanodes with enhanced charge
-          separation. Published in <em>ChemPhysChem</em>, <em>Dalton Transactions</em>, and <em>ChemPlusChem</em>.
-        </p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="publications.html" class="btn btn-primary"><i class="fas fa-book-open"></i> Related Publications</a>
+        <div class="rb-thumbs">
+          <!--
+            THUMB 1  →  pec_jv.jpg     (4:3, e.g. 800×600 px)  J-V curves / photocurrent plot
+            THUMB 2  →  pec_eis.jpg    (4:3, e.g. 800×600 px)  Nyquist / Mott-Schottky plot
+          -->
+          <div>
+            <img src="images/pec_jv.jpg" alt="Photocurrent density plot" class="rb-img-thumb">
+            <p class="rb-img-caption">J-V characteristics</p>
+          </div>
+          <div>
+            <img src="images/pec_eis.jpg" alt="EIS Nyquist plot" class="rb-img-thumb">
+            <p class="rb-img-caption">EIS / Mott-Schottky</p>
+          </div>
         </div>
       </div>
-      <img src="images/perovskite.jpg" alt="Perovskite Research"
-        style="border-radius: 16px; width: 100%; height: 320px; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+
     </div>
 
-    <hr class="divider" style="margin-bottom: 80px;">
+    <!-- ═══════════════════════════════════════════
+         SECTION 2 — PEROVSKITE LED MATERIALS
+    ═══════════════════════════════════════════ -->
+    <div class="research-block reverse reveal">
 
-    <!-- ML PROJECT 1 -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 80px;"
-      class="reveal">
-      <img src="images/ml.jpg" alt="Battery SoC Prediction with LSTM"
-        style="border-radius: 16px; width: 100%; height: 340px; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
-      <div>
-        <span class="card-tag">Deep Learning</span>
-        <h2
-          style="font-family: Outfit, sans-serif; font-size: 1.8rem; font-weight: 800; margin: 12px 0 16px; letter-spacing: -0.5px; color: var(--text-primary);">
-          Battery SoC Prediction with LSTM Networks</h2>
-        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px;">
-          Developed a Long Short-Term Memory (LSTM) recurrent neural network to predict the State of Charge (SoC) of
-          lithium-ion battery cells in real time. The model was trained on dynamic discharge profiles combining current,
-          voltage, and temperature signals.
+      <!-- GALLERY (appears on right due to reverse) -->
+      <div class="rb-gallery">
+        <!--
+          MAIN IMAGE  →  perovskite_main.jpg
+          Recommended: 16:9 landscape, e.g. 1280×720 px
+          Shows glowing LED device / crystal structure / PL spectra
+        -->
+        <img src="images/perovskite_main.jpg" alt="Perovskite LED device" class="rb-img-main">
+        <p class="rb-img-caption">Chalcogenide perovskite BaZrS₃ crystal and optical emission</p>
+
+        <div class="rb-thumbs">
+          <!--
+            THUMB 1  →  perov_pl.jpg      (4:3)  PL emission spectra
+            THUMB 2  →  perov_xrd.jpg     (4:3)  XRD pattern / Rietveld
+          -->
+          <div>
+            <img src="images/perov_pl.jpg" alt="Photoluminescence spectra" class="rb-img-thumb">
+            <p class="rb-img-caption">PL emission spectra</p>
+          </div>
+          <div>
+            <img src="images/perov_xrd.jpg" alt="XRD pattern" class="rb-img-thumb">
+            <p class="rb-img-caption">XRD / Rietveld refinement</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="rb-text">
+        <span class="card-tag">Materials Science · Optoelectronics</span>
+        <h2>Perovskite LED &amp; Photovoltaic Materials</h2>
+        <p class="rb-desc">
+          I explore both halide and chalcogenide perovskites as lead-free, stable alternatives for light-emitting
+          and photovoltaic applications. My work on BaZrS₃ revealed how octahedral distortions quench photoluminescence —
+          a key mechanistic insight for LED material design — and demonstrated bipolaron-mediated hopping as the dominant
+          conduction pathway at room temperature.
         </p>
-        <p style="color: var(--text-secondary); line-height: 1.75; margin-bottom: 24px;">
-          Achieved <strong style="color: var(--text-primary);">&lt;2% RMSE</strong> on held-out test data across
-          multiple driving cycles, enabling more accurate BMS estimation for EV platforms at OLA Electric.
+        <p class="rb-desc" style="margin-top:-10px;">
+          Parallel efforts on halide perovskite LEDs focus on defect passivation, quantum-confinement tuning, and
+          encapsulation strategies to push EQE beyond 20% in the green spectral window.
         </p>
-        <div style="display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap;">
-          <span class="tag">Python</span>
-          <span class="tag">PyTorch</span>
+
+        <div class="rb-findings">
+          <h4>Key Results</h4>
+          <ul>
+            <li>Octahedral distortion identified as PL quenching mechanism in BaZrS₃</li>
+            <li>Bipolaron hopping conduction confirmed by variable-temperature conductivity</li>
+            <li>Chalcogenide photoanodes with enhanced charge separation via interface engineering</li>
+            <li>Published in <em>ChemPhysChem</em>, <em>Dalton Trans.</em>, <em>ChemPlusChem</em></li>
+          </ul>
+        </div>
+
+        <div class="rb-tags">
+          <span class="tag">BaZrS₃</span>
+          <span class="tag">Halide Perovskites</span>
+          <span class="tag">PL Spectroscopy</span>
+          <span class="tag">Octahedral Distortion</span>
+          <span class="tag">Bipolaron</span>
+          <span class="tag">EQE</span>
+          <span class="tag">Defect Passivation</span>
+        </div>
+
+        <div class="rb-cta">
+          <a href="publications.html" class="btn btn-primary"><i class="fas fa-book-open"></i> Publications</a>
+          <a href="contact.html" class="btn btn-outline"><i class="fas fa-comments"></i> Collaborate</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 3 — BATTERY R&D
+    ═══════════════════════════════════════════ -->
+    <div class="research-block reveal">
+
+      <!-- TEXT -->
+      <div class="rb-text">
+        <span class="card-tag">Electrochemistry · Industry R&amp;D</span>
+        <h2>Battery Research &amp; Development</h2>
+        <p class="rb-desc">
+          As Battery R&amp;D Manager at OLA Electric, I led a team focused on lithium-ion cell diagnostics, electrode
+          material optimisation, and full-cell validation protocols for high-rate EV applications. Work spanned
+          from coin-cell fabrication and electrochemical characterisation all the way to pack-level thermal management
+          and cycle-life benchmarking.
+        </p>
+        <p class="rb-desc" style="margin-top:-10px;">
+          A strong emphasis was placed on understanding capacity fade mechanisms through EIS, post-mortem analysis,
+          and correlating micro-structural changes to macroscopic performance metrics.
+        </p>
+
+        <div class="rb-findings">
+          <h4>Key Contributions</h4>
+          <ul>
+            <li>Developed high-rate electrode formulations reducing IR drop by 18%</li>
+            <li>EIS-based degradation protocol cutting SoH estimation error to &lt;3%</li>
+            <li>Post-mortem SEM/EDX mapping of Li plating regions after fast charging</li>
+            <li>Cycle-life extension by 12% via electrolyte additive screening</li>
+          </ul>
+        </div>
+
+        <div class="rb-tags">
+          <span class="tag">Li-ion Cells</span>
+          <span class="tag">EIS</span>
+          <span class="tag">Cycle Life</span>
+          <span class="tag">SoH</span>
+          <span class="tag">Fast Charging</span>
+          <span class="tag">Electrode Engineering</span>
+          <span class="tag">BMS</span>
+          <span class="tag">Thermal Management</span>
+        </div>
+
+        <div class="rb-cta">
+          <a href="contact.html" class="btn btn-primary"><i class="fas fa-comments"></i> Discuss</a>
+          <a href="publications.html" class="btn btn-outline"><i class="fas fa-book-open"></i> Publications</a>
+        </div>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="rb-gallery">
+        <!--
+          MAIN IMAGE  →  battery_main.jpg
+          Recommended: 16:9 landscape, e.g. 1280×720 px
+          Shows cycler setup / coin cells / charge-discharge curves
+        -->
+        <img src="images/battery_main.jpg" alt="Battery R&D lab setup" class="rb-img-main">
+        <p class="rb-img-caption">Electrochemical cycler and coin-cell assembly for LIB testing</p>
+
+        <div class="rb-thumbs">
+          <!--
+            THUMB 1  →  battery_eis.jpg     (4:3)  Nyquist plot / EIS spectra
+            THUMB 2  →  battery_sem.jpg     (4:3)  SEM cross-section of electrode
+          -->
+          <div>
+            <img src="images/battery_eis.jpg" alt="EIS Nyquist plot for battery" class="rb-img-thumb">
+            <p class="rb-img-caption">EIS characterisation</p>
+          </div>
+          <div>
+            <img src="images/battery_sem.jpg" alt="SEM electrode cross-section" class="rb-img-thumb">
+            <p class="rb-img-caption">Post-mortem SEM analysis</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 4 — ML FOR MATERIALS
+    ═══════════════════════════════════════════ -->
+    <div class="research-block reverse reveal">
+
+      <!-- GALLERY -->
+      <div class="rb-gallery">
+        <!--
+          MAIN IMAGE  →  ml_main.jpg
+          Recommended: 16:9 landscape, e.g. 1280×720 px
+          Shows LSTM prediction plot / neural network schematic
+        -->
+        <img src="images/ml_main.jpg" alt="ML model prediction plot" class="rb-img-main">
+        <p class="rb-img-caption">LSTM-predicted vs measured SoC across dynamic drive cycles</p>
+
+        <div class="rb-thumbs">
+          <!--
+            THUMB 1  →  ml_bandgap.jpg    (4:3)  Bandgap parity plot (DFT vs ML)
+            THUMB 2  →  ml_autoenc.jpg    (4:3)  Autoencoder anomaly detection
+          -->
+          <div>
+            <img src="images/ml_bandgap.jpg" alt="Bandgap prediction parity plot" class="rb-img-thumb">
+            <p class="rb-img-caption">DFT vs ML bandgap prediction</p>
+          </div>
+          <div>
+            <img src="images/ml_autoenc.jpg" alt="Autoencoder anomaly detection" class="rb-img-thumb">
+            <p class="rb-img-caption">Autoencoder degradation detection</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="rb-text">
+        <span class="card-tag">Deep Learning · Informatics</span>
+        <h2>Machine Learning for Materials &amp; Energy</h2>
+        <p class="rb-desc">
+          I apply data-driven methods across two fronts: accelerating materials discovery for energy applications,
+          and enabling smarter battery management. LSTM networks trained on dynamic drive-cycle data predict SoC
+          with &lt;2% RMSE in real time, while gradient-boosted models reduce DFT screening time for new perovskites
+          by an order of magnitude.
+        </p>
+        <p class="rb-desc" style="margin-top:-10px;">
+          Autoencoder-based anomaly detection on EIS signatures provides early-warning degradation diagnostics
+          without relying on physics-based equivalent-circuit fitting.
+        </p>
+
+        <div class="rb-findings">
+          <h4>Key Results</h4>
+          <ul>
+            <li>LSTM SoC predictor: &lt;2% RMSE across multiple drive cycles</li>
+            <li>Gradient-boosted bandgap model: 10× faster than DFT screening</li>
+            <li>Autoencoder EIS anomaly detection: 94% early fault recall</li>
+            <li>Automated EIS feature pipeline eliminating manual circuit fitting</li>
+          </ul>
+        </div>
+
+        <div class="rb-tags">
           <span class="tag">LSTM</span>
-          <span class="tag">Pandas</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">Autoencoder</span>
+          <span class="tag">SoC Prediction</span>
+          <span class="tag">Bandgap Prediction</span>
           <span class="tag">Scikit-learn</span>
+          <span class="tag">Python</span>
         </div>
-        <a href="https://github.com/abhi-chem" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i>
-          View on GitHub</a>
+
+        <div class="rb-cta">
+          <a href="https://github.com/abhi-chem" target="_blank" class="btn btn-primary">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="contact.html" class="btn btn-outline"><i class="fas fa-comments"></i> Collaborate</a>
+        </div>
       </div>
+
     </div>
 
-    <!-- ML PROJECT 2 -->
+    <!-- ═══════════════════════════════════════════
+         FUTURE DIRECTIONS
+    ═══════════════════════════════════════════ -->
     <div class="reveal">
       <div class="section-header">
-        <h2>ML for Materials Discovery</h2>
-        <p>Applying AI to accelerate the identification of high-performance energy materials</p>
+        <h2>Future Research Directions</h2>
+        <p>Where the next chapter of this work is headed</p>
       </div>
-      <div class="cards-grid reveal-stagger">
-        <div class="card">
-          <div class="card-body">
-            <span class="card-tag">Regression</span>
-            <h3>Bandgap Prediction</h3>
-            <p>Gradient-boosted tree models trained on DFT datasets to predict bandgaps of chalcogenide perovskites from
-              structural descriptors, reducing computational screening time by 10×.</p>
+      <div class="future-grid reveal-stagger">
+
+        <div class="future-card">
+          <div class="future-icon" style="background:#e0f2fe;color:#0ea5e9;">
+            <i class="fas fa-flask"></i>
           </div>
+          <h3>Tandem PEC Devices</h3>
+          <p>Coupling spin-polarised photoanodes with low-bandgap chalcogenide photocathodes to push unassisted
+            solar-to-hydrogen efficiency beyond 10%.</p>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <span class="card-tag">Anomaly Detection</span>
-            <h3>Battery Degradation Modeling</h3>
-            <p>Autoencoder-based models for detecting anomalous capacity fade in lithium-ion cells using electrochemical
-              impedance signatures, enabling early-warning diagnostics in BMS.</p>
+
+        <div class="future-card">
+          <div class="future-icon" style="background:#ede9fe;color:#7c3aed;">
+            <i class="fas fa-lightbulb"></i>
           </div>
+          <h3>Stable Blue Perovskite LEDs</h3>
+          <p>Engineering mixed-halide perovskites with suppressed phase segregation for long-lifetime blue LEDs
+            targeting &gt;10,000 hours operational stability.</p>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <span class="card-tag">Feature Engineering</span>
-            <h3>EIS Feature Extraction</h3>
-            <p>Automated pipeline to extract equivalent circuit parameters from raw impedance data, feeding downstream
-              ML models for SoH estimation without manual fitting.</p>
+
+        <div class="future-card">
+          <div class="future-icon" style="background:#dcfce7;color:#059669;">
+            <i class="fas fa-solid-state-drive fa-hdd"></i>
           </div>
+          <h3>Solid-State Battery Interfaces</h3>
+          <p>Understanding lithium dendrite nucleation at garnet electrolyte/Li-metal interfaces using cryo-TEM
+            and in-situ electrochemical operando techniques.</p>
         </div>
+
+        <div class="future-card">
+          <div class="future-icon" style="background:#fef3c7;color:#d97706;">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3>Graph Neural Networks for Perovskites</h3>
+          <p>Building crystal-graph neural networks trained on DFT datasets to predict stability, ionic conductivity,
+            and optoelectronic properties of novel perovskite compositions.</p>
+        </div>
+
+        <div class="future-card">
+          <div class="future-icon" style="background:#fce7f3;color:#db2777;">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Fast-Charging Protocols via RL</h3>
+          <p>Reinforcement learning-optimised charging protocols that maximise cycle life while minimising
+            lithium plating risk — validated on physical cell hardware.</p>
+        </div>
+
+        <div class="future-card">
+          <div class="future-icon" style="background:#e0f2fe;color:#0284c7;">
+            <i class="fas fa-satellite-dish"></i>
+          </div>
+          <h3>Operando Spectroelectrochemistry</h3>
+          <p>Combining in-situ Raman, XAS, and electrochemical measurements to track real-time structural evolution
+            of photoelectrodes under working PEC conditions.</p>
+        </div>
+
       </div>
     </div>
 
-    <hr class="divider" style="margin-bottom: 80px;">
-
-    <!-- TECHNIQUES -->
-    <div class="reveal">
-      <div class="section-header">
-        <h2>Characterization Techniques</h2>
-        <p>Experimental toolkit used across my research projects</p>
-      </div>
-      <div class="cards-grid reveal-stagger">
-        <div class="card">
-          <div class="card-body">
-            <span class="card-tag">Structural</span>
-            <h3>X-ray & Raman</h3>
-            <p>Powder XRD, Rietveld refinement, and Raman spectroscopy for crystal structure and phase identification in
-              perovskite systems.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <span class="card-tag">Optical</span>
-            <h3>UV-Vis & PL Spectroscopy</h3>
-            <p>Bandgap determination, Tauc plots, steady-state and time-resolved photoluminescence for recombination
-              dynamics.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <span class="card-tag">Electrochemical</span>
-            <h3>EIS & Photoelectrochemistry</h3>
-            <p>Electrochemical impedance spectroscopy, Mott-Schottky analysis, chronoamperometry, and IPCE measurements
-              for PEC cell evaluation.</p>
-          </div>
-        </div>
+    <!-- COLLABORATION BANNER -->
+    <div class="collab-banner reveal" style="margin-top:72px;">
+      <h2>Let's Build Something Together</h2>
+      <p>I'm always open to collaborations across energy materials, battery R&amp;D, and data-driven discovery.
+        Reach out if our work aligns.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-white"><i class="fas fa-envelope"></i> Get in Touch</a>
+        <a href="publications.html" class="btn btn-outline"
+          style="border-color:rgba(255,255,255,0.5);color:white;">
+          <i class="fas fa-book-open"></i> Publications
+        </a>
       </div>
     </div>
 
-  </div>
+  </div><!-- /section -->
 
   <footer>
     <div class="footer-inner">
@@ -211,6 +475,6 @@
       <span class="footer-copy">&copy; 2025 &mdash; IIT Madras</span>
     </div>
   </footer>
-</body>
 
+</body>
 </html>
