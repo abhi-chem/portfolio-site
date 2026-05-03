@@ -1112,7 +1112,7 @@ footer {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 24px 20px;
+  padding: 20px 14px;
   text-align: center;
   box-shadow: var(--shadow);
   transition: all var(--transition);
@@ -1166,7 +1166,7 @@ footer {
   border-bottom: none;
 }
 
-/* Reverse: gallery goes first (left) by shifting text to the right */
+/* Reverse: swap columns — gallery appears LEFT, text appears RIGHT */
 .research-block.reverse .rb-text {
   order: 2;
 }
