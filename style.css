@@ -1521,3 +1521,119 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================================
+   RESEARCH SECTION — ANIMATED BADGES
+   Small thematic indicators, one per block.
+   Touch nothing else.
+======================================== */
+.rb-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  letter-spacing: 0.4px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+}
+
+/* Shimmer sweep across every badge */
+.rb-live-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: rb-shimmer 2.8s ease-in-out infinite;
+}
+
+@keyframes rb-shimmer {
+  0%   { left: -120%; }
+  100% { left: 220%;  }
+}
+
+/* ── Section 1: PEC Water Splitting — blue sun ── */
+.rb-badge-solar {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+}
+.rb-badge-solar i {
+  animation: rb-spin-slow 5s linear infinite;
+  display: inline-block;
+}
+@keyframes rb-spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Section 2: Perovskite LED — purple atom pulse ── */
+.rb-badge-perov {
+  background: #ede9fe;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
+}
+.rb-badge-perov i {
+  animation: rb-glow-pulse 2s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes rb-glow-pulse {
+  0%, 100% { transform: scale(1);    opacity: 1;   }
+  50%       { transform: scale(1.35); opacity: 0.65; }
+}
+
+/* ── Section 3: Advanced Spectroscopy — pink wave ── */
+.rb-badge-spectro {
+  background: #fce7f3;
+  color: #be185d;
+  border: 1px solid #fbcfe8;
+}
+.rb-badge-spectro i {
+  animation: rb-wave-scan 1.6s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes rb-wave-scan {
+  0%, 100% { transform: scaleX(1)   translateX(0);  }
+  25%       { transform: scaleX(0.7) translateX(-2px); }
+  75%       { transform: scaleX(1.2) translateX(2px);  }
+}
+
+/* ── Section 4: Battery R&D — green charge bounce ── */
+.rb-badge-battery {
+  background: #dcfce7;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+.rb-badge-battery i {
+  animation: rb-charge-bounce 1.4s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes rb-charge-bounce {
+  0%, 100% { transform: translateY(0);   }
+  40%       { transform: translateY(-4px); }
+  70%       { transform: translateY(2px);  }
+}
+
+/* ── Section 5: ML for Materials — amber neural throb ── */
+.rb-badge-ml {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+.rb-badge-ml i {
+  animation: rb-neural-throb 1.9s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes rb-neural-throb {
+  0%, 100% { transform: scale(1);    }
+  30%       { transform: scale(1.3);  }
+  60%       { transform: scale(0.85); }
+}
