@@ -769,7 +769,7 @@ footer {
   content: '';
   position: absolute;
   left: 25px;
-  top: 60px;
+  top: 54px;
   width: 2px;
   background: var(--border);
   bottom: 0;
