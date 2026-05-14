@@ -777,8 +777,8 @@ footer {
 
 .timeline-dot {
   flex-shrink: 0;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 12px;
   background: var(--accent-light);
   color: var(--accent);
@@ -792,8 +792,8 @@ footer {
 }
 
 .timeline-dot img {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
   border-radius: 20px;
