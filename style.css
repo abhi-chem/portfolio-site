@@ -791,6 +791,20 @@ footer {
   line-height: 1.2;
 }
 
+.timeline-dot img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .timeline-body h4 {
   font-weight: 700;
   color: var(--text-primary);
