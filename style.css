@@ -777,8 +777,8 @@ footer {
 
 .timeline-dot {
   flex-shrink: 0;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-radius: 12px;
   background: var(--accent-light);
   color: var(--accent);
@@ -788,18 +788,18 @@ footer {
   font-weight: 800;
   font-size: 0.7rem;
   text-align: center;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .timeline-dot img {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
   border-radius: 20px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1190,7 +1190,9 @@ footer {
 }
 
 /* Text side */
-.rb-text .card-tag { margin-bottom: 14px; }
+.rb-text .card-tag {
+  margin-bottom: 14px;
+}
 
 .rb-text h2 {
   font-family: 'Outfit', sans-serif;
@@ -1295,14 +1297,14 @@ footer {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: var(--radius-lg);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: block;
 }
 
 .rb-img-main:hover {
   transform: scale(1.015);
-  box-shadow: 0 16px 48px rgba(14,165,233,0.15);
+  box-shadow: 0 16px 48px rgba(14, 165, 233, 0.15);
 }
 
 /* Thumb row: two 4:3 images side by side */
@@ -1317,14 +1319,14 @@ footer {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   display: block;
 }
 
 .rb-img-thumb:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 28px rgba(14,165,233,0.15);
+  box-shadow: 0 8px 28px rgba(14, 165, 233, 0.15);
 }
 
 /* Image caption */
@@ -1357,7 +1359,9 @@ footer {
 .future-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--accent), var(--accent-purple));
   transform: scaleX(0);
@@ -1438,27 +1442,52 @@ footer {
   background: var(--accent-light);
   border-color: var(--accent-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Research page responsive */
 @media (max-width: 1100px) {
-  .research-intro { grid-template-columns: repeat(3, 1fr); }
+  .research-intro {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
-  .research-intro { grid-template-columns: repeat(2, 1fr); }
-  .research-block { grid-template-columns: 1fr; gap: 32px; }
+  .research-intro {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .research-block {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
   /* Reset column ordering on single-column layout */
-  .research-block.reverse .rb-text { order: unset; }
-  .research-block.reverse .rb-gallery { order: unset; }
-  .future-grid { grid-template-columns: repeat(2, 1fr); }
+  .research-block.reverse .rb-text {
+    order: unset;
+  }
+
+  .research-block.reverse .rb-gallery {
+    order: unset;
+  }
+
+  .future-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 600px) {
-  .research-intro { grid-template-columns: 1fr 1fr; }
-  .rb-thumbs { grid-template-columns: 1fr; }
-  .future-grid { grid-template-columns: 1fr; }
+  .research-intro {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rb-thumbs {
+    grid-template-columns: 1fr;
+  }
+
+  .future-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ========================================
@@ -1565,13 +1594,18 @@ footer {
   left: -120%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   animation: rb-shimmer 2.8s ease-in-out infinite;
 }
 
 @keyframes rb-shimmer {
-  0%   { left: -120%; }
-  100% { left: 220%;  }
+  0% {
+    left: -120%;
+  }
+
+  100% {
+    left: 220%;
+  }
 }
 
 /* ── Section 1: PEC Water Splitting — blue sun ── */
@@ -1580,13 +1614,20 @@ footer {
   color: #0284c7;
   border: 1px solid #bae6fd;
 }
+
 .rb-badge-solar i {
   animation: rb-spin-slow 5s linear infinite;
   display: inline-block;
 }
+
 @keyframes rb-spin-slow {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ── Section 2: Perovskite LED — purple atom pulse ── */
@@ -1595,13 +1636,24 @@ footer {
   color: #7c3aed;
   border: 1px solid #ddd6fe;
 }
+
 .rb-badge-perov i {
   animation: rb-glow-pulse 2s ease-in-out infinite;
   display: inline-block;
 }
+
 @keyframes rb-glow-pulse {
-  0%, 100% { transform: scale(1);    opacity: 1;   }
-  50%       { transform: scale(1.35); opacity: 0.65; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 0.65;
+  }
 }
 
 /* ── Section 3: Advanced Spectroscopy — pink wave ── */
@@ -1610,14 +1662,26 @@ footer {
   color: #be185d;
   border: 1px solid #fbcfe8;
 }
+
 .rb-badge-spectro i {
   animation: rb-wave-scan 1.6s ease-in-out infinite;
   display: inline-block;
 }
+
 @keyframes rb-wave-scan {
-  0%, 100% { transform: scaleX(1)   translateX(0);  }
-  25%       { transform: scaleX(0.7) translateX(-2px); }
-  75%       { transform: scaleX(1.2) translateX(2px);  }
+
+  0%,
+  100% {
+    transform: scaleX(1) translateX(0);
+  }
+
+  25% {
+    transform: scaleX(0.7) translateX(-2px);
+  }
+
+  75% {
+    transform: scaleX(1.2) translateX(2px);
+  }
 }
 
 /* ── Section 4: Battery R&D — green charge bounce ── */
@@ -1626,14 +1690,26 @@ footer {
   color: #059669;
   border: 1px solid #a7f3d0;
 }
+
 .rb-badge-battery i {
   animation: rb-charge-bounce 1.4s ease-in-out infinite;
   display: inline-block;
 }
+
 @keyframes rb-charge-bounce {
-  0%, 100% { transform: translateY(0);   }
-  40%       { transform: translateY(-4px); }
-  70%       { transform: translateY(2px);  }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-4px);
+  }
+
+  70% {
+    transform: translateY(2px);
+  }
 }
 
 /* ── Section 5: ML for Materials — amber neural throb ── */
@@ -1642,12 +1718,24 @@ footer {
   color: #b45309;
   border: 1px solid #fde68a;
 }
+
 .rb-badge-ml i {
   animation: rb-neural-throb 1.9s ease-in-out infinite;
   display: inline-block;
 }
+
 @keyframes rb-neural-throb {
-  0%, 100% { transform: scale(1);    }
-  30%       { transform: scale(1.3);  }
-  60%       { transform: scale(0.85); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.3);
+  }
+
+  60% {
+    transform: scale(0.85);
+  }
 }
