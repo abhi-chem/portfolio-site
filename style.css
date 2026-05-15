@@ -550,9 +550,9 @@ footer {
 
 .timeline-body h4 {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
 }
 
 .timeline-duration {
@@ -560,6 +560,7 @@ footer {
   font-weight: 500;
   color: var(--text-muted);
   white-space: nowrap;
+  margin-left: auto;
 }
 
 /* Thesis styling */
