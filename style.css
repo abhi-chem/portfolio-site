@@ -1054,6 +1054,12 @@ footer {
   transition-delay: 0.40s;
 }
 
+.reveal-stagger.active>*:nth-child(n+7) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.47s;
+}
+
 /* ========================================
    FOOTER
 ======================================== */
