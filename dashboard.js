@@ -50,13 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
     FA: 2.53,
     Rb: 1.72,
     K: 1.64,
-    // B-site cations
-    Pb: 1.19,
-    Sn: 1.10,
-    Ge: 0.73,
-    Mn: 0.83,
-    In: 0.80,
-    Bi: 1.03,
+    // B-site Divalent (Single)
+    Pb2: 1.19,
+    Sn2: 1.10,
+    Ge2: 0.73,
+    Mn2: 0.83,
+    // B'-site Monovalent (Double)
+    Na: 1.02,
+    Ag: 1.15,
+    Au: 1.37,
+    Cu: 0.77,
+    // B''-site Trivalent (Double)
+    In3: 0.80,
+    Bi3: 1.03,
+    Sb3: 0.76,
+    Fe3: 0.645,
+    // B-site Tetravalent (Vacancy-Ordered)
+    Sn4: 0.69,
+    Ti4: 0.605,
+    Zr4: 0.72,
+    Pt4: 0.625,
+    Pd4: 0.615,
     // X-site anions
     I: 2.20,
     Br: 1.96,
@@ -69,51 +83,205 @@ document.addEventListener('DOMContentLoaded', () => {
   if (latticeObj) activeResizers.push(latticeObj.resize);
   if (stabilityMapObj) activeResizers.push(stabilityMapObj.resize);
 
+  let currentStructureType = 'single';
+
+  // Helper: Draw 3D-effect glossy spheres
+  function drawGlossySphere(ctx, x, y, r, baseColor) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.clip();
+
+    const grad = ctx.createRadialGradient(
+      x - r * 0.3, y - r * 0.3, r * 0.05,
+      x, y, r
+    );
+
+    if (baseColor === 'cyan') {
+      grad.addColorStop(0, '#e0f2fe');
+      grad.addColorStop(0.2, '#0ea5e9');
+      grad.addColorStop(0.8, '#0369a1');
+      grad.addColorStop(1, '#0c4a6e');
+    } else if (baseColor === 'gold') {
+      grad.addColorStop(0, '#fef3c7');
+      grad.addColorStop(0.25, '#d97706');
+      grad.addColorStop(0.8, '#78350f');
+      grad.addColorStop(1, '#451a03');
+    } else if (baseColor === 'purple') {
+      grad.addColorStop(0, '#fae8ff');
+      grad.addColorStop(0.25, '#c084fc');
+      grad.addColorStop(0.8, '#6b21a8');
+      grad.addColorStop(1, '#4c1d95');
+    } else if (baseColor === 'purple-A') {
+      grad.addColorStop(0, '#ede9fe');
+      grad.addColorStop(0.25, '#8b5cf6');
+      grad.addColorStop(0.8, '#5b21b6');
+      grad.addColorStop(1, '#3b0764');
+    } else if (baseColor === 'gray') {
+      grad.addColorStop(0, '#f8fafc');
+      grad.addColorStop(0.25, '#64748b');
+      grad.addColorStop(0.8, '#334155');
+      grad.addColorStop(1, '#0f172a');
+    } else {
+      grad.addColorStop(0, '#ffffff');
+      grad.addColorStop(0.2, baseColor);
+      grad.addColorStop(0.8, '#000000');
+    }
+
+    ctx.fillStyle = grad;
+    ctx.fillRect(x - r, y - r, r * 2, r * 2);
+    ctx.restore();
+
+    ctx.strokeStyle = 'rgba(15, 23, 42, 0.3)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  // Helper: Draw metallic cylinders as bonds
+  function drawGlossyBond(ctx, x1, y1, x2, y2, thickness = 5) {
+    ctx.save();
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const angle = Math.atan2(dy, dx);
+
+    const px = -Math.sin(angle) * (thickness / 2);
+    const py = Math.cos(angle) * (thickness / 2);
+
+    const midX = (x1 + x2) / 2;
+    const midY = (y1 + y2) / 2;
+
+    const grad = ctx.createLinearGradient(
+      midX - px, midY - py,
+      midX + px, midY + py
+    );
+    grad.addColorStop(0, '#e2e8f0');
+    grad.addColorStop(0.3, '#ffffff');
+    grad.addColorStop(0.7, '#cbd5e1');
+    grad.addColorStop(1, '#94a3b8');
+
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = thickness;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+
+    ctx.strokeStyle = 'rgba(15, 23, 42, 0.15)';
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
   function calculateGoldschmidt() {
+    const divB = document.getElementById('group-b-divalent');
+    const divMono = document.getElementById('group-b-monovalent');
+    const divTri = document.getElementById('group-b-trivalent');
+    const divTetra = document.getElementById('group-b-tetravalent');
+
+    if (currentStructureType === 'single') {
+      if (divB) divB.style.display = 'flex';
+      if (divMono) divMono.style.display = 'none';
+      if (divTri) divTri.style.display = 'none';
+      if (divTetra) divTetra.style.display = 'none';
+    } else if (currentStructureType === 'double') {
+      if (divB) divB.style.display = 'none';
+      if (divMono) divMono.style.display = 'flex';
+      if (divTri) divTri.style.display = 'flex';
+      if (divTetra) divTetra.style.display = 'none';
+    } else if (currentStructureType === 'vacancy') {
+      if (divB) divB.style.display = 'none';
+      if (divMono) divMono.style.display = 'none';
+      if (divTri) divTri.style.display = 'none';
+      if (divTetra) divTetra.style.display = 'flex';
+    }
+
     const rA_id = document.getElementById('cation-a').value;
-    const rB_id = document.getElementById('cation-b').value;
     const rX_id = document.getElementById('anion-x').value;
 
     const rA = IONIC_RADII[rA_id];
-    const rB = IONIC_RADII[rB_id];
     const rX = IONIC_RADII[rX_id];
 
-    // Goldschmidt formula: t = (rA + rX) / (sqrt(2) * (rB + rX))
-    const t = (rA + rX) / (Math.sqrt(2) * (rB + rX));
-    // Octahedral factor: mu = rB / rX
-    const mu = rB / rX;
+    let rB = 0;
+    let rB_prime = 0;
+    let rB_double_prime = 0;
+    let t = 0;
+    let mu = 0;
 
-    // Phase classification
+    if (currentStructureType === 'single') {
+      const rB_id = document.getElementById('cation-b-divalent').value;
+      rB = IONIC_RADII[rB_id];
+      t = (rA + rX) / (Math.sqrt(2) * (rB + rX));
+      mu = rB / rX;
+      
+      document.getElementById('goldschmidt-formula-display').innerHTML = '$$t = \\frac{r_A + r_X}{\\sqrt{2}(r_B + r_X)}$$';
+    } else if (currentStructureType === 'double') {
+      const rB_prime_id = document.getElementById('cation-b-monovalent').value;
+      const rB_double_prime_id = document.getElementById('cation-b-trivalent').value;
+      rB_prime = IONIC_RADII[rB_prime_id];
+      rB_double_prime = IONIC_RADII[rB_double_prime_id];
+      
+      rB = (rB_prime + rB_double_prime) / 2;
+      t = (rA + rX) / (Math.sqrt(2) * (rB + rX));
+      mu = rB / rX;
+
+      document.getElementById('goldschmidt-formula-display').innerHTML = '$$t = \\frac{r_A + r_X}{\\sqrt{2}(\\langle r_B \\rangle + r_X)}, \\quad \\langle r_B \\rangle = \\frac{r_{B\'} + r_{B\'\'}}{2}$$';
+    } else if (currentStructureType === 'vacancy') {
+      const rB_id = document.getElementById('cation-b-tetravalent').value;
+      rB = IONIC_RADII[rB_id];
+      t = (rA + rX) / (Math.sqrt(2) * (rB + rX));
+      mu = rB / rX;
+
+      document.getElementById('goldschmidt-formula-display').innerHTML = '$$t = \\frac{r_A + r_X}{\\sqrt{2}(r_B + r_X)} \\quad \\text{with vacancy } \\square$$';
+    }
+
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      window.MathJax.typesetPromise([document.getElementById('goldschmidt-formula-display')]).catch((err) => console.log(err));
+    }
+
     let phase = 'Non-Perovskite';
     let badgeClass = 'phase-unstable';
 
-    if (t > 1.05) {
-      phase = 'Hexagonal / Unstable';
-      badgeClass = 'phase-unstable';
-    } else if (t >= 0.90 && t <= 1.05) {
-      phase = 'Cubic (Stable & Symm.)';
-      badgeClass = 'phase-stable';
-    } else if (t >= 0.75 && t < 0.90) {
-      phase = 'Orthorhombic (Stable/Distorted)';
-      badgeClass = 'phase-distorted';
+    if (currentStructureType === 'vacancy') {
+      if (t >= 0.85 && t <= 1.05) {
+        phase = 'Cubic Antifluorite (Stable)';
+        badgeClass = 'phase-stable';
+      } else if (t >= 0.70 && t < 0.85) {
+        phase = 'Tilted/Distorted Monoclinic';
+        badgeClass = 'phase-distorted';
+      } else {
+        phase = 'Unstable defect phase';
+        badgeClass = 'phase-unstable';
+      }
     } else {
-      phase = 'Non-Perovskite (Unstable)';
-      badgeClass = 'phase-unstable';
+      if (t > 1.05) {
+        phase = 'Hexagonal / Unstable';
+        badgeClass = 'phase-unstable';
+      } else if (t >= 0.90 && t <= 1.05) {
+        phase = 'Cubic (Stable & Symm.)';
+        badgeClass = 'phase-stable';
+      } else if (t >= 0.75 && t < 0.90) {
+        phase = 'Orthorhombic (Stable/Distorted)';
+        badgeClass = 'phase-distorted';
+      } else {
+        phase = 'Non-Perovskite (Unstable)';
+        badgeClass = 'phase-unstable';
+      }
     }
 
-    // Update UI
     document.getElementById('t-factor-val').textContent = t.toFixed(3);
     document.getElementById('oct-factor-val').textContent = mu.toFixed(3);
     const badge = document.getElementById('predicted-phase-val');
     badge.textContent = phase;
     badge.className = `phase-badge ${badgeClass}`;
 
-    drawLattice(t, rA, rB, rX);
+    drawLattice(t, rA, rB, rX, rB_prime, rB_double_prime);
     drawStabilityMap(mu, t);
   }
 
-  // Draw 2D projection of BX6 octahedra with dynamic tilts
-  function drawLattice(t, rA, rB, rX) {
+  function drawLattice(t, rA, rB, rX, rB_prime, rB_double_prime) {
     if (!latticeObj) return;
     const { ctx, width, height } = latticeObj;
     ctx.clearRect(0, 0, width, height);
@@ -121,40 +289,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const centerX = width / 2;
     const centerY = height / 2;
 
-    // Tilt angle based on distortion: lower tolerance = higher tilt
     let tiltAngle = 0;
     if (t < 0.90) {
-      tiltAngle = Math.min(18, (0.90 - t) * 60); // in degrees
+      tiltAngle = Math.min(18, (0.90 - t) * 60);
     }
     const rad = (tiltAngle * Math.PI) / 180;
 
-    // Scale representation based on relative radii
     const scale = 50; 
     const rB_px = rB * scale * 0.45;
     const rX_px = rX * scale * 0.45;
     const rA_px = rA * scale * 0.45;
 
-    // Draw A-site Cations at corners (cut off in slice)
-    ctx.fillStyle = 'rgba(124, 58, 237, 0.15)'; // Light purple
-    ctx.strokeStyle = 'rgba(124, 58, 237, 0.4)';
-    ctx.lineWidth = 1.5;
     const corners = [
-      [20, 20], [width - 20, 20],
-      [20, height - 20], [width - 20, height - 20]
+      [22, 22], [width - 22, 22],
+      [22, height - 22], [width - 22, height - 22]
     ];
     corners.forEach(([cx, cy]) => {
-      ctx.beginPath();
-      ctx.arc(cx, cy, rA_px, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
+      drawGlossySphere(ctx, cx, cy, rA_px, 'purple-A');
       
-      // Label A-site
-      ctx.fillStyle = 'rgba(124, 58, 237, 0.8)';
-      ctx.font = 'bold 9px Inter';
-      ctx.fillText('A', cx - 3, cy + 3);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 10px Inter';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('A', cx, cy);
     });
 
-    // Draw B-site (metals) and X-site (halides) in a 2x2 octahedra mesh
     const gridSize = Math.min(width, height) * 0.32;
     const cellCoords = [
       [-gridSize/2, -gridSize/2], [gridSize/2, -gridSize/2],
@@ -165,7 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const cx = centerX + ox;
       const cy = centerY + oy;
       
-      // Determine tilt direction (+ or - based on staggered checkboard rotation)
       const dir = (idx === 0 || idx === 3) ? 1 : -1;
       const currentRad = rad * dir;
 
@@ -173,42 +331,53 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.translate(cx, cy);
       ctx.rotate(currentRad);
 
-      // Draw Bonds linking B to X
-      ctx.strokeStyle = '#cbd5e1';
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(-gridSize/2, 0); ctx.lineTo(gridSize/2, 0);
-      ctx.moveTo(0, -gridSize/2); ctx.lineTo(0, gridSize/2);
-      ctx.stroke();
-
-      // Draw X-site anions at diamond tips
-      const xPositions = [
-        [-gridSize/2, 0], [gridSize/2, 0],
-        [0, -gridSize/2], [0, gridSize/2]
-      ];
-      ctx.fillStyle = '#0ea5e9'; // Cyan
-      xPositions.forEach(([xx, xy]) => {
-        ctx.beginPath();
-        ctx.arc(xx, xy, rX_px, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.strokeStyle = '#0284c7';
+      if (currentStructureType === 'vacancy' && (idx === 1 || idx === 2)) {
+        ctx.strokeStyle = 'rgba(148, 163, 184, 0.3)';
         ctx.lineWidth = 1.5;
+        ctx.setLineDash([4, 4]);
+        
+        ctx.beginPath();
+        ctx.moveTo(-gridSize/2, 0); ctx.lineTo(gridSize/2, 0);
+        ctx.moveTo(0, -gridSize/2); ctx.lineTo(0, gridSize/2);
         ctx.stroke();
-      });
+        
+        ctx.beginPath();
+        ctx.arc(0, 0, rB_px * 0.8, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
 
-      // Draw Central B-site cation
-      ctx.fillStyle = '#f59e0b'; // Gold
-      ctx.beginPath();
-      ctx.arc(0, 0, rB_px, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = '#d97706';
-      ctx.stroke();
+        ctx.fillStyle = '#64748b';
+        ctx.font = 'bold 16px Inter';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('□', 0, 0);
+      } else {
+        drawGlossyBond(ctx, -gridSize/2, 0, gridSize/2, 0, 5);
+        drawGlossyBond(ctx, 0, -gridSize/2, 0, gridSize/2, 5);
+
+        const xPositions = [
+          [-gridSize/2, 0], [gridSize/2, 0],
+          [0, -gridSize/2], [0, gridSize/2]
+        ];
+        xPositions.forEach(([xx, xy]) => {
+          drawGlossySphere(ctx, xx, xy, rX_px, 'cyan');
+        });
+
+        if (currentStructureType === 'single') {
+          drawGlossySphere(ctx, 0, 0, rB_px, 'gold');
+        } else if (currentStructureType === 'double') {
+          const isBPrime = (idx === 0 || idx === 3);
+          const currentR = isBPrime ? (rB_prime * scale * 0.45) : (rB_double_prime * scale * 0.45);
+          drawGlossySphere(ctx, 0, 0, currentR, isBPrime ? 'gold' : 'purple');
+        } else if (currentStructureType === 'vacancy') {
+          drawGlossySphere(ctx, 0, 0, rB_px, 'gray');
+        }
+      }
 
       ctx.restore();
     });
 
-    // Stability warning overlays
-    if (t < 0.75 || t > 1.05) {
+    if (t < 0.70 || t > 1.05) {
       ctx.fillStyle = 'rgba(239, 68, 68, 0.04)';
       ctx.fillRect(0, 0, width, height);
       ctx.strokeStyle = 'rgba(239, 68, 68, 0.3)';
@@ -219,7 +388,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
       ctx.fillStyle = '#ef4444';
       ctx.font = 'bold 11px Inter';
-      ctx.fillText('LATTICE UNSTABLE', centerX - 55, height - 20);
+      ctx.textAlign = 'center';
+      ctx.fillText('LATTICE UNSTABLE', centerX, height - 20);
     }
   }
 
@@ -228,40 +398,55 @@ document.addEventListener('DOMContentLoaded', () => {
     const { ctx, width, height } = stabilityMapObj;
     ctx.clearRect(0, 0, width, height);
 
-    // Map bounds: mu [0.3, 0.9], t [0.6, 1.2]
     const mapX = (val) => ((val - 0.3) / 0.6) * width;
     const mapY = (val) => height - ((val - 0.6) / 0.6) * height;
 
-    // Draw stable zone box (mu: 0.41 to 0.73, t: 0.82 to 1.05 roughly)
-    ctx.fillStyle = 'rgba(34, 197, 94, 0.15)'; // light green
+    ctx.fillStyle = 'rgba(34, 197, 94, 0.12)'; 
     ctx.fillRect(mapX(0.41), mapY(1.05), mapX(0.75) - mapX(0.41), mapY(0.82) - mapY(1.05));
     ctx.strokeStyle = 'rgba(34, 197, 94, 0.4)';
+    ctx.lineWidth = 1;
     ctx.strokeRect(mapX(0.41), mapY(1.05), mapX(0.75) - mapX(0.41), mapY(0.82) - mapY(1.05));
 
-    // Stability grid labels
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '8px Inter';
-    ctx.fillText('Cubic Zone', mapX(0.45), mapY(0.95));
+    ctx.fillStyle = '#64748b';
+    ctx.font = '7px Inter';
+    ctx.textAlign = 'left';
+    ctx.fillText('Stable Zone', mapX(0.44), mapY(0.95));
 
-    // Plot current composition coordinate
     const cx = mapX(mu);
     const cy = mapY(t);
 
-    ctx.strokeStyle = '#ef4444'; // Red crosshair
-    ctx.lineWidth = 1;
+    const clampedCx = Math.max(5, Math.min(width - 5, cx));
+    const clampedCy = Math.max(5, Math.min(height - 5, cy));
+
+    ctx.strokeStyle = '#ef4444'; 
+    ctx.lineWidth = 1.2;
     ctx.beginPath();
-    ctx.moveTo(cx - 6, cy); ctx.lineTo(cx + 6, cy);
-    ctx.moveTo(cx, cy - 6); ctx.lineTo(cx, cy + 6);
+    ctx.moveTo(clampedCx - 6, clampedCy); ctx.lineTo(clampedCx + 6, clampedCy);
+    ctx.moveTo(clampedCx, clampedCy - 6); ctx.lineTo(clampedCx, clampedCy + 6);
     ctx.stroke();
 
     ctx.fillStyle = '#ef4444';
     ctx.beginPath();
-    ctx.arc(cx, cy, 3, 0, Math.PI * 2);
+    ctx.arc(clampedCx, clampedCy, 3.5, 0, Math.PI * 2);
     ctx.fill();
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 1;
+    ctx.stroke();
   }
 
-  // Bind events for Goldschmidt
-  const idList = ['cation-a', 'cation-b', 'anion-x'];
+  // Bind events for Goldschmidt type buttons
+  const typeButtons = document.querySelectorAll('#perovskite-type-group button');
+  typeButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      typeButtons.forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      currentStructureType = e.target.getAttribute('data-type');
+      calculateGoldschmidt();
+    });
+  });
+
+  // Bind events for Goldschmidt selectors
+  const idList = ['cation-a', 'cation-b-divalent', 'cation-b-monovalent', 'cation-b-trivalent', 'cation-b-tetravalent', 'anion-x'];
   idList.forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('change', calculateGoldschmidt);

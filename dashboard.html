@@ -15,6 +15,19 @@
   <link rel="stylesheet" href="dashboard.css">
   <script defer src="script.js"></script>
   <script defer src="dashboard.js"></script>
+  <!-- MathJax Configuration and Script -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 
 <body>
@@ -63,8 +76,17 @@
       <div class="sim-grid">
         <!-- Controls -->
         <div class="sim-controls">
-          <div class="math-formula">
+          <div class="math-formula" id="goldschmidt-formula-display">
             $$t = \frac{r_A + r_X}{\sqrt{2}(r_B + r_X)}$$
+          </div>
+
+          <div class="control-group">
+            <label>Perovskite Structure Family</label>
+            <div class="btn-group" id="perovskite-type-group" style="grid-template-columns: repeat(3, 1fr);">
+              <button class="btn btn-outline active" data-type="single" style="font-size: 0.7rem; padding: 8px 2px; text-align: center;">Single (ABX₃)</button>
+              <button class="btn btn-outline" data-type="double" style="font-size: 0.7rem; padding: 8px 2px; text-align: center;">Double (A₂B'B"X₆)</button>
+              <button class="btn btn-outline" data-type="vacancy" style="font-size: 0.7rem; padding: 8px 2px; text-align: center;">Vacancy-Ordered</button>
+            </div>
           </div>
           
           <div class="control-group">
@@ -78,15 +100,48 @@
             </select>
           </div>
 
-          <div class="control-group">
-            <label for="cation-b">B-Site Cation (Metal Center)</label>
-            <select id="cation-b">
-              <option value="Pb" selected>Lead (Pb²⁺) — 1.19 Å</option>
-              <option value="Sn">Tin (Sn²⁺) — 1.10 Å</option>
-              <option value="Ge">Germanium (Ge²⁺) — 0.73 Å</option>
-              <option value="Mn">Manganese (Mn²⁺) — 0.83 Å</option>
-              <option value="In">Indium (In³⁺) — 0.80 Å</option>
-              <option value="Bi">Bismuth (Bi³⁺) — 1.03 Å</option>
+          <!-- 1. Divalent B-Site for Single Perovskites -->
+          <div class="control-group" id="group-b-divalent">
+            <label for="cation-b-divalent">B-Site Cation (Divalent, B²⁺)</label>
+            <select id="cation-b-divalent">
+              <option value="Pb2" selected>Lead (Pb²⁺) — 1.19 Å</option>
+              <option value="Sn2">Tin (Sn²⁺) — 1.10 Å</option>
+              <option value="Ge2">Germanium (Ge²⁺) — 0.73 Å</option>
+              <option value="Mn2">Manganese (Mn²⁺) — 0.83 Å</option>
+            </select>
+          </div>
+
+          <!-- 2. Monovalent B'-Site for Double Perovskites -->
+          <div class="control-group" id="group-b-monovalent" style="display: none;">
+            <label for="cation-b-monovalent">B'-Site Cation (Monovalent, B'⁺)</label>
+            <select id="cation-b-monovalent">
+              <option value="Na" selected>Sodium (Na⁺) — 1.02 Å</option>
+              <option value="Ag">Silver (Ag⁺) — 1.15 Å</option>
+              <option value="Au">Gold (Au⁺) — 1.37 Å</option>
+              <option value="Cu">Copper (Cu⁺) — 0.77 Å</option>
+            </select>
+          </div>
+
+          <!-- 3. Trivalent B''-Site for Double Perovskites -->
+          <div class="control-group" id="group-b-trivalent" style="display: none;">
+            <label for="cation-b-trivalent">B''-Site Cation (Trivalent, B''³⁺)</label>
+            <select id="cation-b-trivalent">
+              <option value="In3" selected>Indium (In³⁺) — 0.80 Å</option>
+              <option value="Bi3">Bismuth (Bi³⁺) — 1.03 Å</option>
+              <option value="Sb3">Antimony (Sb³⁺) — 0.76 Å</option>
+              <option value="Fe3">Iron (Fe³⁺) — 0.645 Å</option>
+            </select>
+          </div>
+
+          <!-- 4. Tetravalent B-Site for Vacancy-Ordered Perovskites -->
+          <div class="control-group" id="group-b-tetravalent" style="display: none;">
+            <label for="cation-b-tetravalent">B-Site Cation (Tetravalent, B⁴⁺)</label>
+            <select id="cation-b-tetravalent">
+              <option value="Sn4" selected>Tin (Sn⁴⁺) — 0.69 Å</option>
+              <option value="Ti4">Titanium (Ti⁴⁺) — 0.605 Å</option>
+              <option value="Zr4">Zirconium (Zr⁴⁺) — 0.72 Å</option>
+              <option value="Pt4">Platinum (Pt⁴⁺) — 0.625 Å</option>
+              <option value="Pd4">Palladium (Pd⁴⁺) — 0.615 Å</option>
             </select>
           </div>
 
