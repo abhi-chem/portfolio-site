@@ -368,3 +368,398 @@ input[type="range"]::-webkit-slider-thumb:hover {
   width: 100%;
   height: 100%;
 }
+
+/* ========================================
+   RESPONSIVE — LARGE TABLETS / SMALL LAPTOPS
+======================================== */
+@media (max-width: 1200px) {
+  .dashboard-section {
+    gap: 40px;
+    padding-top: 28px;
+    padding-bottom: 60px;
+  }
+
+  .sim-grid {
+    grid-template-columns: 340px 1fr;
+    min-height: 420px;
+  }
+
+  .sim-controls {
+    padding: 24px;
+    gap: 18px;
+  }
+
+  .sim-visual {
+    padding: 24px;
+  }
+
+  .sim-card-header {
+    padding: 22px 24px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — TABLETS (≤960px)
+   Controls stack above visuals
+======================================== */
+@media (max-width: 960px) {
+  .dashboard-section {
+    gap: 32px;
+    padding-top: 20px;
+    padding-bottom: 48px;
+  }
+
+  .sim-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .sim-controls {
+    padding: 20px;
+    gap: 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sim-visual {
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .sim-card-header {
+    padding: 18px 20px;
+  }
+
+  .sim-card-title h3 {
+    font-size: 1.2rem;
+  }
+
+  .sim-card-title p {
+    font-size: 0.85rem;
+  }
+
+  .sim-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.15rem;
+    border-radius: 11px;
+  }
+
+  .sim-card-title {
+    gap: 14px;
+  }
+
+  .math-formula {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+  }
+
+  .readout-box {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .readout-row {
+    font-size: 0.82rem;
+    padding-bottom: 7px;
+  }
+
+  .readout-val {
+    font-size: 0.88rem;
+  }
+
+  .canvas-wrapper {
+    min-height: 220px;
+  }
+
+  .visual-half .canvas-wrapper {
+    min-height: 180px;
+  }
+
+  .split-visuals {
+    gap: 16px;
+  }
+
+  .visual-caption {
+    font-size: 0.78rem;
+  }
+
+  .control-group label {
+    font-size: 0.82rem;
+  }
+
+  select {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .btn-group .btn {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+
+  .stability-map-container {
+    width: 85px;
+    height: 85px;
+    bottom: 8px;
+    right: 8px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE (≤768px)
+======================================== */
+@media (max-width: 768px) {
+  .dashboard-section {
+    gap: 24px;
+    padding-top: 16px;
+    padding-bottom: 36px;
+  }
+
+  .sim-controls {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .sim-visual {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .sim-card-header {
+    padding: 14px 16px;
+  }
+
+  .sim-card-title h3 {
+    font-size: 1.05rem;
+    letter-spacing: -0.3px;
+  }
+
+  .sim-card-title p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .sim-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .sim-card-title {
+    gap: 12px;
+  }
+
+  .math-formula {
+    padding: 8px 12px;
+    font-size: 0.78rem;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.6;
+  }
+
+  .control-group {
+    gap: 6px;
+  }
+
+  .control-group label {
+    font-size: 0.78rem;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .slider-display {
+    font-size: 0.75rem;
+    padding: 1px 6px;
+  }
+
+  select {
+    padding: 7px 10px;
+    font-size: 0.82rem;
+  }
+
+  input[type="range"] {
+    margin: 8px 0;
+    height: 5px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+  }
+
+  .btn-group {
+    gap: 6px;
+  }
+
+  .btn-group .btn {
+    padding: 7px 8px;
+    font-size: 0.73rem;
+  }
+
+  .readout-box {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .readout-row {
+    font-size: 0.78rem;
+    padding-bottom: 6px;
+  }
+
+  .readout-label {
+    font-size: 0.76rem;
+  }
+
+  .readout-val {
+    font-size: 0.82rem;
+  }
+
+  .phase-badge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
+
+  .split-visuals {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .canvas-wrapper {
+    min-height: 200px;
+  }
+
+  .visual-half .canvas-wrapper {
+    min-height: 170px;
+  }
+
+  .visual-header {
+    font-size: 0.82rem;
+    padding-bottom: 6px;
+  }
+
+  .visual-caption {
+    font-size: 0.74rem;
+    margin-top: 2px;
+  }
+
+  .stability-map-container {
+    width: 70px;
+    height: 70px;
+    bottom: 6px;
+    right: 6px;
+    border-radius: 6px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — SMALL MOBILE (≤480px)
+======================================== */
+@media (max-width: 480px) {
+  .dashboard-section {
+    gap: 18px;
+    padding-top: 12px;
+    padding-bottom: 28px;
+  }
+
+  .sim-card {
+    border-radius: 14px;
+  }
+
+  .sim-card-header {
+    padding: 12px 14px;
+  }
+
+  .sim-card-title h3 {
+    font-size: 0.95rem;
+  }
+
+  .sim-card-title p {
+    font-size: 0.75rem;
+  }
+
+  .sim-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  .sim-card-title {
+    gap: 10px;
+  }
+
+  .sim-controls {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .sim-visual {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .math-formula {
+    padding: 6px 10px;
+    font-size: 0.72rem;
+    border-radius: 8px;
+    line-height: 1.7;
+  }
+
+  .control-group label {
+    font-size: 0.74rem;
+  }
+
+  select {
+    padding: 6px 8px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+  }
+
+  .btn-group .btn {
+    padding: 6px 6px;
+    font-size: 0.68rem;
+    border-radius: 6px;
+  }
+
+  .readout-box {
+    padding: 10px;
+    gap: 6px;
+    border-radius: 8px;
+  }
+
+  .readout-row {
+    font-size: 0.74rem;
+    padding-bottom: 5px;
+  }
+
+  .readout-val {
+    font-size: 0.78rem;
+  }
+
+  .canvas-wrapper {
+    min-height: 180px;
+    border-radius: 8px;
+  }
+
+  .visual-half .canvas-wrapper {
+    min-height: 150px;
+  }
+
+  .visual-header {
+    font-size: 0.76rem;
+  }
+
+  .visual-caption {
+    font-size: 0.7rem;
+  }
+
+  .stability-map-container {
+    width: 60px;
+    height: 60px;
+    bottom: 4px;
+    right: 4px;
+  }
+}

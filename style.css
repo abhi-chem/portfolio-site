@@ -2169,3 +2169,74 @@ footer {
     transform: scale(0.85);
   }
 }
+
+/* ========================================
+   GLOBAL RESPONSIVE — SECTION & BANNER
+======================================== */
+@media (max-width: 960px) {
+  .section {
+    padding: 48px 28px;
+  }
+
+  .page-banner {
+    padding: 28px 28px 16px;
+  }
+
+  .nav {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 36px 20px;
+  }
+
+  .page-banner {
+    padding: 24px 20px 14px;
+  }
+
+  .page-banner h1 {
+    margin-bottom: 8px;
+  }
+
+  .page-banner p {
+    font-size: 0.95rem;
+  }
+
+  .nav {
+    padding: 0 16px;
+  }
+
+  .nav a {
+    font-size: 0.82rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 28px 16px;
+  }
+
+  .page-banner {
+    padding: 18px 16px 12px;
+  }
+
+  .page-banner p {
+    font-size: 0.88rem;
+  }
+
+  .nav {
+    padding: 0 12px;
+  }
+
+  .nav a {
+    font-size: 0.78rem;
+    padding: 5px 8px;
+  }
+
+  .nav ul {
+    gap: 2px;
+  }
+}
